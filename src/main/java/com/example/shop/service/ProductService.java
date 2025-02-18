@@ -32,9 +32,13 @@ public class ProductService {
     }
 
     public ProductDTO updateProduct(Long id, Product updatedProduct) {
+        System.out.println(updatedProduct.getPrice());
+
         Product product = productRepository.findById(id).orElse(null);
+
         product.setPrice(updatedProduct.getPrice());
         product.setName(updatedProduct.getName());
+
         return modelMapper.map(productRepository.save(product), ProductDTO.class);
     }
 
