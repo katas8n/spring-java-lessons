@@ -21,5 +21,5 @@ public class OrderExample {
     private Long id;
 
     @ManyToMany(mappedBy = "orders")
-    private Set<OrderExample> carts = new HashSet<>();
+    private Set<CartExample> carts = new HashSet<>();
 }
