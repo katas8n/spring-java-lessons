@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -21,5 +24,8 @@ public class Product {
         private String description;
         private Double price;
         private Double realPrice;
+
+        @ManyToMany(mappedBy = "products")
+        private Set<Cart> carts = new HashSet<>();
     }
 

@@ -15,16 +15,12 @@ import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-public class CartExample {
+@Table(name = "orders")
+public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToMany
-    @JoinTable(
-            name = "cart_order", // name of the third table ( that will be created underneath a hood )
-            joinColumns = @JoinColumn(name = "cart_id"), // First columns foreign key
-            inverseJoinColumns = @JoinColumn(name = "order_id") // Second columns foreign key
-    )
-    private Set<OrderExample> orders = new HashSet<>();
+    @ManyToMany(mappedBy = "orders")
+    private Set<Cart> carts = new HashSet<>();
 }
