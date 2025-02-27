@@ -32,7 +32,6 @@ public class ProductController {
 
     @PutMapping("/{id}")
     public ProductDTO updateProduct(@PathVariable Long id, @RequestBody Product product) {
-        System.out.println(product.getPrice());
         return productService.updateProduct(id, product);
     }
 
